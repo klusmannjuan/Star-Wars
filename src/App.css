@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  
+  background-image: url(http://untroubled.org/backgrounds/space/stars.gif);
 }
 
 .App-logo {
@@ -37,14 +37,23 @@
 
 .footer
 {
-  background-color: black;
+  background-color: rgb(38, 37, 37);
   height: 40px;
+  margin-top: 20px;
+  
+}
+
+.f-texto
+{
+  font-size: 20px;
 }
 
 .tarjetas
 {
+  background-color: white;
   margin: 20px;
   border-radius: 20px;
+  margin-top: 20px;
   
 }
 
@@ -52,7 +61,35 @@
 
 .Texto
 {
-  margin: 30px;
+  color: white;
+  padding: 40px;
+  text-align: justify;
+  margin: 0 auto;
+  letter-spacing: 1.5px;
+  max-width: 1080px;
+  height: 300px;
+  animation: intro 25s linear infinite;
+}
+
+.Texto h1
+{
+  text-align: center;
+  font-size: 65px;
+  padding: 5px;
+  color: yellow;
+}
+
+.personajes
+{
+  
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.scroll
+{
+  max-height: 160px ;
+  overflow-y: auto;
 }
 
 @keyframes App-logo-spin {
@@ -64,13 +101,5 @@
   }
 }
 
-.d-block {
-  height: 900px;
-}
 
-.card-group{
-  padding-left: 80px;
-  padding-right: 80px;
-  padding-bottom: 50px;
-}
 

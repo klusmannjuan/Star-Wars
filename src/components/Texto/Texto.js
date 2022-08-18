@@ -4,7 +4,7 @@ function Texto () {
     return(
 
         <div className="Texto">
-            <h1>Información Sobre Star Wars</h1>
+            <h1 className="star">Star Wars</h1>
 
             <p>Star Wars, traducido al español como La Guerra de las Galaxias, es una franquicia compuesta de películas, 
                 novelas, cómics, videojuegos y juguetes .
