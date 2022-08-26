@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
 
 export const Personajes = () => {
   const [people, setPeople] = useState([]);
@@ -42,6 +43,7 @@ export const Personajes = () => {
                     <h3>Color piel </h3>
                     <p>{people.skin_color}</p>
               </Card.Text>
+              <a href="./Pages/DPersonaje"><Button variant="outline-primary">Detalle</Button>{' '}</a>
             </Card.Body>
             </div>
           </Card>

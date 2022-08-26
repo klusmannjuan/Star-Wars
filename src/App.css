@@ -92,6 +92,66 @@
   overflow-y: auto;
 }
 
+.container-D h1
+{
+    margin-top: 20px;
+    color: yellow;
+}
+
+.container-img
+{
+  display: flex;
+  margin-top: 50px;
+  padding-left: 45px;
+  
+}
+
+.C-Detalle
+{
+  margin: 30px;
+  
+}
+
+.detalles
+{
+  color: #EEEA18;
+   margin-left: 200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+.texto h3 {
+    margin: 10px 0;
+    color: #EEEA18;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.texto {
+    font-size: 3.5rem;
+    color: white;
+}
+
+.detalle-gri {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minimax(250px, auto));
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    color: darkgray;
+    font-weight: 800;
+}
+
+.detalle-in h5 {
+    color: yellow;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
