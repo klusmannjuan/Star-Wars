@@ -24,7 +24,7 @@ function NavbarApp() {
 
             <Link className='nav-link' to="/personajes">Personajes</Link>
             
-            <Nav.Link href="#">Planetas</Nav.Link> 
+            <Link className='nav-link' to="/planetas">Planetas</Link> 
 
           </Nav>
         </Container>

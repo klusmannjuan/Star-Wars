@@ -1,0 +1,10 @@
+.img
+{
+    max-width: 100%;
+    height: 100%;
+}
+
+.btn-r
+{
+    display:flex;
+}

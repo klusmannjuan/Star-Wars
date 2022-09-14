@@ -1,57 +1,83 @@
-import React, { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import { usePerson } from '../Hooks/usePerson';
+import { Card, ListGroupItem } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import { ListGroup } from 'react-bootstrap';
+import { ImNext2 } from "react-icons/im";
+import { ImPrevious2 } from "react-icons/im";
+import {Link} from 'react-router-dom';
+
 
 export const Personajes = () => {
-  const [people, setPeople] = useState([]);
 
-  useEffect(() => {
-    async function fetchPeople() {
-      const personaje = await fetch("https://swapi.dev/api/people/");
-      const data = await personaje.json();
-      setPeople(data.results);
+  const {getAllPerson,dataPeople, Counter, Preview, Next} = usePerson();
+  const [disabledL, setDisabledL] = useState(false);
+  const [disabledR, setDisabledR] = useState(false);
+
+
+  useEffect(()=>{
+
+    getAllPerson(Counter);
+
+    if(Counter ===9){
+      setDisabledR(true);
+    } else {
+      setDisabledR(false);
     }
-    fetchPeople();
-  }, []);
+
+    if(Counter ===1){
+      setDisabledL(true);
+    } else {
+      setDisabledL(false);
+    }
+  
+    
+  }, [dataPeople])
 
   return (
-    
-      <div className="d-flex justify-content-center flex-wrap">
-        {" "}
-        {people.map((people) => (
-          <div className="personajes" key={setPeople}>
+    <div>
+      <div className='text-center'><h1 className='text-warning m-4'>Personajes</h1></div>
+      <div className='d-flex flex-wrap'>
+      {dataPeople.map((people) => (
+        
+            <Card
+            bg='secondary'
+            key={people.name}
+            text='black'
+            style={{ width: '18rem' }}
+            className="m-4 shadow"
+            >
 
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src="https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/test/5cbeea135cafe88451149213/sw1.jpg" />
-                <div className="scroll">
-                <Card.Body>
-                  <Card.Title>{people.name}</Card.Title>
-                  <Card.Text>
+           <Card.Img variant="top" src='https://www.elcorteingles.es/ideas-y-consejos/cultura-y-ocio/material/blog/cultura-y-ocio/11592_1610105106_mejores-personajes-de-star-wars.jpg' />
+            <Card.Body>
+                <Card.Title className="text-center"><h4>{people.name}</h4></Card.Title>
+                <ListGroup>
+
+                  <ListGroup.Item><strong>Altura:</strong> {people.height}</ListGroup.Item>
+                  <ListGroup.Item><strong>Peso:</strong> {people.mass} Kg</ListGroup.Item>
+                  <ListGroup.Item><strong>Cumpleaños:</strong> {people.birth_year}</ListGroup.Item>
+                  <ListGroup.Item><strong>Genero:</strong> {people.gender}</ListGroup.Item>
+                  <ListGroup.Item><strong>Color de ojos:</strong> {people.eye_color}</ListGroup.Item>
+                  <ListGroup.Item><strong>Color de cabello:</strong> {people.hair_color}</ListGroup.Item>
                   
-                    <h5>Genero</h5>
-                    <p>{people.gender}</p>
-                    <h3>Nacimiento</h3>
-                    <p>{people.birth_year}</p>
-                    <h3>Altura</h3>
-                    <p>{people.height}</p>
-                    <h3>Color de ojos</h3>
-                    <p>{people.eye_color}</p>
-                    <h3>Color de cabello</h3>
-                    <p>{people.hair_color}</p>
-                    <h3>Peso en KG:</h3>
-                    <p>{people.mass}</p>
-                    <h3>Color piel </h3>
-                    <p>{people.skin_color}</p>
-              </Card.Text>
-              <a href="./Pages/DPersonaje"><Button variant="outline-primary">Detalle</Button>{' '}</a>
+                </ListGroup>
+
+               
+                <div className='text-center mt-3'>
+                  <Link to={`/details/${people.name}/${Counter}`} key ={people.name}>
+                    <Button className="m-auto" variant="primary"> Detalles</Button>
+                  </Link>
+                </div>
             </Card.Body>
-            </div>
-          </Card>
-        </div>
+        </Card>
       ))}
+
+      <div className='container text-center'>
+        <Button id="back" className='mx-2 text-light shadow' disabled={disabledL} variant='dark' onClick={Preview}><ImPrevious2/></Button>
+          <strong>{Counter}</strong>
+        <Button id="next" className='mx-2 text-light shadow' disabled={disabledR}  variant='dark' onClick={Next}><ImNext2/></Button>
+      </div>
+      </div>
     </div>
-  );
-};
-
-
-export default Personajes;
+  )
+}
