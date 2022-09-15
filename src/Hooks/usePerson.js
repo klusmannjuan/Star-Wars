@@ -6,6 +6,8 @@ export const usePerson = () => {
 
     const [dataPeople, setDataPeople] = useState([]);
     const [Counter, setCounter] = useState(1);
+
+
     
 
     const Preview = () => {

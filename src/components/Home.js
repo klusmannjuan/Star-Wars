@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Slider from "./CarouselApp/carousel";
 import CardsApp from "./Cards/Tarjetas";
 import Texto from "./Texto/Texto";
-import Footer from "./Footer/Footer";
+
 
 
 function Home() {
@@ -15,7 +15,7 @@ function Home() {
 
       <CardsApp />
 
-      <Footer />
+      
     </div>
   );
 }

@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 
 
 
+
+
 export const DPersonaje = () => {
   const { back, getAllPerson, dataPeople } = usePerson();
 
@@ -26,6 +28,9 @@ export const DPersonaje = () => {
 
   }, []);
 
+  
+
+  
 
   const filtro = dataPeople.filter((inFilter) => inFilter.name === nombre);
 
@@ -73,6 +78,7 @@ export const DPersonaje = () => {
                     </div>
 
                   </div>
+
                 ))}
                 </div>
               </div>
